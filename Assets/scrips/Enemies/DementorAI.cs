@@ -6,11 +6,13 @@ public class DementorAI : MonoBehaviour
 {
     public float rotationSpeed = 10f;
 
+    //记录蝙蝠的初始位置
     Vector2 spawnPoint;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        //初始化蝙蝠的初始位置
         spawnPoint = transform.position;
     }
 
@@ -79,11 +81,11 @@ public class DementorAI : MonoBehaviour
         lastFlyAround = Time.time;
 
         var self = GetComponent<Rigidbody2D>();
-        self.velocity = new Vector2(point.x - 30f, self.velocityY) - new Vector2(point.x, self.velocityY);
+        self.velocity = new Vector2(point.x - 20f, self.velocityY) - new Vector2(point.x, self.velocityY);
         yield return new WaitForSeconds(0.5f);
         self.velocity = new Vector2(point.x, self.velocityY) - new Vector2(point.x, self.velocityY);
         yield return new WaitForSeconds(0.5f);
-        self.velocity = new Vector2(point.x + 30f, self.velocityY) - new Vector2(point.x, self.velocityY);
+        self.velocity = new Vector2(point.x + 20f, self.velocityY) - new Vector2(point.x, self.velocityY);
         yield return new WaitForSeconds(0.5f);
         self.velocity = new Vector2(point.x, self.velocityY) - new Vector2(point.x, self.velocityY);
         yield return new WaitForSeconds(0.5f);

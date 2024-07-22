@@ -19,6 +19,8 @@ public class Character : MonoBehaviour
 
     public bool invulnerable;
 
+
+    public UnityEvent<Character> OnBloodChange;
     public UnityEvent<Transform> OnTakeDamage;
 
     public UnityEvent OnDie; 
@@ -26,6 +28,7 @@ public class Character : MonoBehaviour
     private void Start()
     {
         currentblood = maxblood;
+        OnBloodChange?.Invoke(this);
     }
 
     private void Update()
@@ -60,6 +63,7 @@ public class Character : MonoBehaviour
             //触发死亡动作
             OnDie?.Invoke();
         }
+        OnBloodChange?.Invoke(this);
     }
 
     private void TriggerInvulnerable()
