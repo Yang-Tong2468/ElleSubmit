@@ -31,10 +31,3 @@ public class GoldensnitchAI : MonoBehaviour
 }
 
 
-class Program
-{
-    static void Main()
-    {
-        
-    }
-}
